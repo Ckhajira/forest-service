@@ -18,4 +18,11 @@ public class AnimalTest {
         Animal lucky = new Animal("Lucky");
         assertTrue(lucky instanceof Animal);
     }
+
+    @Test
+    public void getName_instanciates_with_name(){
+        Animal lucky = new Animal("Lucky");
+        lucky.getName();
+        assertEquals("Lucky", lucky.getName());
+    }
 }
