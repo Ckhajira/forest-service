@@ -32,4 +32,29 @@ public class AnimalTest {
         lucky.save();
         assertTrue(Animal.all().get(0).equals(lucky));
     }
+
+    @Test
+    public void all_ReturnsAllAnimalInstances(){
+        Animal lucky = new Animal("Lucky");
+        lucky.save();
+        Animal becky = new Animal("Becky");
+        becky.save();
+        Animal bucky = new Animal("Bucky");
+        bucky.save();
+        assertTrue(Animal.all().get(0).equals(lucky));
+        assertTrue(Animal.all().get(0).equals(lucky));
+        assertTrue(Animal.all().get(0).equals(lucky));
+
+    }
+
+    @Test
+    public void find_returnsAnimalWithSameId_secondAnimal(){
+        Animal lucky = new Animal("Lucky");
+        lucky.save();
+        Animal becky = new Animal("Becky");
+        becky.save();
+        assertEquals(Animal.find(becky.getId()), becky);
+    }
+
+
 }
