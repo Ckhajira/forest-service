@@ -62,6 +62,15 @@ public class Animal implements DatabaseInterfaces{
         }
     }
 
+    public List<Sighting> getAightings(){
+        try (Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM sightings WHERE animalId=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(Sighting.class);
+        }
+    }
+
 
 
 
