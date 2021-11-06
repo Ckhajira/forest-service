@@ -10,5 +10,12 @@ import static org.junit.Assert.assertTrue;
 
 
 public class AnimalTest {
+//    @Rule
+//    public DatabaseRule database = new DatabaseRule();
 
+    @Test
+    public void animals_instantiates_correctly(){
+        Animal lucky = new Animal("Lucky");
+        assertTrue(lucky instanceof Animal);
+    }
 }
