@@ -25,4 +25,11 @@ public class AnimalTest {
         lucky.getName();
         assertEquals("Lucky", lucky.getName());
     }
+
+    @Test
+    public void save_AnimalInsertObjectsIntoDatabase(){
+        Animal lucky = new Animal("Lucky");
+        lucky.save();
+        assertTrue(Animal.all().get(0).equals(lucky));
+    }
 }
