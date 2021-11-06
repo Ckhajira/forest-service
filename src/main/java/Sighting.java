@@ -16,4 +16,26 @@ public class Sighting{
         this.location = location;
         this.rangerName = rangerName;
     }
+
+    public int getId(){
+        return id;
+    }
+
+    public int getAnimalId(){
+        return animalId;
+    }
+
+    public String getLocation(){
+        return location;
+    }
+
+    public String getRangerName(){
+        return rangerName;
+    }
+
+    public Timestamp getLastSighting(){
+        return lastSighting;
+    }
+
+
 }
