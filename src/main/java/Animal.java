@@ -35,7 +35,7 @@ public class Animal{
 
     @Override
     public void save(){
-        try (Connection con=DB.sql20.open()){
+        try (Connection con=DB.sql2o.open()){
             String sql = "INSERT INTO animals (name) VALUES (:name)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
