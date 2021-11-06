@@ -48,7 +48,7 @@ public class AnimalTest {
     }
 
     @Test
-    public void find_returnsAnimalWithSameId_secondAnimal(){
+    public void find_ReturnsAnimalWithSameId(){
         Animal lucky = new Animal("Lucky");
         lucky.save();
         Animal becky = new Animal("Becky");
