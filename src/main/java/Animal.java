@@ -4,3 +4,7 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.Objects;
 import java.util.Timer;
+
+public class Animal{
+
+}
