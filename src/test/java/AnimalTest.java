@@ -56,5 +56,15 @@ public class AnimalTest {
         assertEquals(Animal.find(becky.getId()), becky);
     }
 
+    @Test
+    public void getSightings_RetrieveAll(){
+        Animal lucky = new Animal("Lucky");
+        lucky.save();
+        Sighting nairobi = new Sighting(lucky.getId(), "Nairobi","Becky");
+        nairobi.save();
+        Sighting[] sightings = {nairobi, kisumu};
+        assertTrue(lucky.getSightings().containsAll(Arrays.asList(sightings)));
+    }
+
 
 }
