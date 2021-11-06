@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Timer;
 
-public class Animal{
+public class Animal implements DatabaseInterfaces{
     private String name;
     private int id;
 
