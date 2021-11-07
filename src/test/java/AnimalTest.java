@@ -57,11 +57,13 @@ public class AnimalTest {
     }
 
     @Test
-    public void getSightings_RetrieveAll(){
+    public void getSightings_retrievesAllSightingsFromDatabase_sightingsList() {
         Animal lucky = new Animal("Lucky");
         lucky.save();
-        Sighting nairobi = new Sighting(lucky.getId(), "Nairobi","Becky");
+        Sighting nairobi = new Sighting(lucky.getId(), "Nairobi", "Becky");
         nairobi.save();
+        Sighting kisumu = new Sighting(lucky.getId(), "Kisumu", "Bucky");
+        kisumu.save();
         Sighting[] sightings = {nairobi, kisumu};
         assertTrue(lucky.getSightings().containsAll(Arrays.asList(sightings)));
     }
