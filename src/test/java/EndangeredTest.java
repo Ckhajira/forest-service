@@ -11,8 +11,8 @@ import static org.junit.Assert.*;
 import static org.junit.Assert.assertTrue;
 
 public class EndangeredTest {
-    @Rule
-    public DatabaseRule database = new DatabaseRule();
+//    @Rule
+//    public DatabaseRule database = new DatabaseRule();
 
     @Test
     public void endangered_instantiatesWithName_true() {
