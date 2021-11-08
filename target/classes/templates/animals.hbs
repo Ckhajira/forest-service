@@ -1,0 +1,46 @@
+{{#partial "styles"}}
+    <link rel="stylesheet" href="/css/animals.css">
+{{/partial}}
+
+{{#partial "content"}}
+    <div class="container-fluid">
+        <div class="row success-parent-container">
+            <div class="col-md-6">
+                <img style="position: fixed;" src="https://cdn.pixabay.com/photo/2017/05/31/18/38/sea-2361247__340.jpg" alt="fox">
+            </div>
+            <div class="col-md-6 success-child-container">
+                <p id="heading-animals">All Animals</p>
+                {{#if animals}}
+                    {{#each animals}}
+                        <ul id="animals">
+                            <li>Species: <span id="value"> {{name}} </span></li>
+                            <li>Category: <span id="value">  {{danger}}</span></li>
+                            <li>Health: <span id="value">  {{health}}</span></li>
+                            <li>Age: <span id="value">  {{age}}</span></li>
+                            <li>Location Spotted: <span id="value">{{location}}</span><span id="value"></span></li>
+                            <p id="ranger">Submitted by: <span id="value">{{ranger}}</p>
+                            <p id="ranger">Submitted At: <span id="value">{{created}}</p>
+                        </ul>
+                    {{/each}}
+                    <div class="buttons">
+                        <a href="/animals/new">
+                            <button class="btn btn-primary">Make Another Submission</button>
+                        </a>
+                        <a href="/animals/delete"><button class="btn btn-danger">Delete All</button></a>
+                    </div>
+                {{else}}
+                    <p>No Animal found in records</p>
+                    <a href="/">
+                        <button class="btn btn-primary">Add a New Submission</button>
+                    </a>
+
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+{{/partial}}
+
+{{> layout.hbs}}
