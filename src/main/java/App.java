@@ -1,3 +1,5 @@
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +33,7 @@ public class App{
             String location = request.queryParams("location");
             String ranger = request.queryParams("ranger");
 
+
             Endangered endangeredAnimal = new Endangered(animal, danger, health, age, location, ranger);
             endangeredAnimal.save();
             Sighting sighting = new Sighting(endangeredAnimal.getId(), location, ranger);
@@ -52,6 +55,13 @@ public class App{
 
             return new ModelAndView(model, "animals.hbs");
         }, new HandlebarsTemplateEngine());
+
+
+        get("/animals/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "success-delete.hbs");
+        }, new HandlebarsTemplateEngine());
+
 
 
 

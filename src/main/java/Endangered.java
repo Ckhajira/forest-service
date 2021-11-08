@@ -1,4 +1,5 @@
 import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -12,10 +13,11 @@ public class Endangered  implements DatabaseInterfaces{
         private int id;
         private String name;
         private String danger;
-        private String health;
-        private String age;
+        private final String health;
+        private final String age;
         private String location;
         private String ranger;
+        private Timestamp created;
 
 
     public Endangered(String name, String danger, String health, String age, String location, String ranger) {
@@ -25,6 +27,7 @@ public class Endangered  implements DatabaseInterfaces{
         this.age = age;
         this.location = location;
         this.ranger = ranger;
+
     }
 
     public String getName() {
@@ -72,7 +75,7 @@ public class Endangered  implements DatabaseInterfaces{
     @Override
     public void save() {
         try (Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO animals (name, danger, health, age, location, ranger) VALUES (:name, :danger, :health, :age, :location, :ranger)";
+            String sql = "INSERT INTO animals (name, danger, health, age, location, ranger, created) VALUES (:name, :danger, :health, :age, :location, :ranger, now())";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("name", this.name)
                     .addParameter("danger", this.danger)
@@ -80,6 +83,7 @@ public class Endangered  implements DatabaseInterfaces{
                     .addParameter("age", this.age)
                     .addParameter("location", this.location)
                     .addParameter("ranger", this.ranger)
+
                     .executeUpdate()
                     .getKey();
         }
@@ -110,4 +114,6 @@ public class Endangered  implements DatabaseInterfaces{
                     .executeAndFetch(Sighting.class);
         }
     }
+
+
 }

@@ -1,4 +1,5 @@
 import org.sql2o.Connection;
+import org.sql2o.Sql2oException;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -69,7 +70,7 @@ public class Animal implements DatabaseInterfaces{
                     .addParameter("id", this.id)
                     .executeAndFetch(Sighting.class);
         }
-
-
     }
+
+
 }
