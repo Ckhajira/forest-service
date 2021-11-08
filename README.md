@@ -38,8 +38,11 @@ spotted.
 2. \c wildlife-tracker;
 3. CREATE TABLE animals (id serial PRIMARY KEY, name text, danger text, health text, age text, location text, ranger text, created timestamp);
 4. CREATE TABLE sightings (id serial PRIMARY KEY, animal id int, location text, rangername text, lastsighting timestamp);
-## Technologies Used
 
+## Test Database Setup
+1. CREATE DATABASE wildlife_tracker_test WITH TEMPLATE wildlife_tracker;
+
+## Technologies Used
 This project uses HTML and CSS for frontend.
 Java for backend
 
