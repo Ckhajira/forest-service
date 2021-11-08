@@ -27,6 +27,8 @@ public class Endangered  implements DatabaseInterfaces{
         this.age = age;
         this.location = location;
         this.ranger = ranger;
+        created = getCreated();
+
 
     }
 
@@ -53,6 +55,8 @@ public class Endangered  implements DatabaseInterfaces{
     public String getRanger() {
         return ranger;
     }
+
+    public Timestamp getCreated(){ return created;}
 
     @Override
     public boolean equals(Object o) {
@@ -112,6 +116,14 @@ public class Endangered  implements DatabaseInterfaces{
             return con.createQuery(sql)
                     .addParameter("id", this.id)
                     .executeAndFetch(Sighting.class);
+        }
+    }
+
+    public List<Endangered> getTime() {
+        try (Connection con = DB.sql2o.open()) {
+            String sql = "SELECT created FROM animals";
+            return con.createQuery(sql)
+                    .executeAndFetch(Endangered.class);
         }
     }
 

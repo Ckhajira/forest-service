@@ -34,8 +34,11 @@ public class App{
             String ranger = request.queryParams("ranger");
 
 
+
             Endangered endangeredAnimal = new Endangered(animal, danger, health, age, location, ranger);
+
             endangeredAnimal.save();
+
             Sighting sighting = new Sighting(endangeredAnimal.getId(), location, ranger);
             sighting.save();
 
